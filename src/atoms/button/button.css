@@ -1,0 +1,22 @@
+.ac-button {
+    font-weight: 500;
+    font-size: 0.875rem;    
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    border: 0;
+    width: 100%;
+}
+
+.ac-button-sm {
+    width: 62px;
+
+}
+
+.ac-button-md {
+    width: 62px;
+}
+
+.ac-button-lg {
+    width: 62px;
+}

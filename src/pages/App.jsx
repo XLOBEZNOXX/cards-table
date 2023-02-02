@@ -1,7 +1,17 @@
+import "./app.css";
+
+import {ACButton, ACLoaderButton} from "../atoms";
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">Hola mundo</header>
+    <div className="app"> 
+      <div className="productos">
+        aqui van los productos
+      </div>
+      <div className="action">
+      <ACButton text="test" color="orange" size="lg"/>
+       <ACLoaderButton text="Load more"/>
+      </div>
     </div>
   );
 }
