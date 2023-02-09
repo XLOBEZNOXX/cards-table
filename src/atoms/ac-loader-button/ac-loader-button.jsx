@@ -1,5 +1,5 @@
 import React from 'react'
-import "./loader-button.css";
+import "./ac-loader-button.css";
 
 function ACLoaderButton ({text}) {
   return (
