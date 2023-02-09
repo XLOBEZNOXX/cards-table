@@ -4,6 +4,7 @@ import "./ac-color.css"
 function ACColor({color = "orange"}) {
     const styles = {
         height: "144px",
+        width: "400px",
         background: color
       };
     return (

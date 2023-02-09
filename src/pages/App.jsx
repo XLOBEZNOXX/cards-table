@@ -1,5 +1,5 @@
 import "./app.css";
-import {ACCard} from "../molecules"
+import {ACCardsRow} from "../organisms"
 
 const chips = ["wooden", "metal", "fresh", "gold", "silver", "copper"];
 const colors = ["yellow", "green", "blue", "red", "pink", "orange"];
@@ -31,12 +31,10 @@ for(let i = 0; i < 6; i++) {
 function App() {
   return (
     <div className="app"> 
-      {
-        cardProps.map((cp) =>
-        <ACCard chipTitle={cp.chipTitle} title={cp.title} color={cp.color} price={cp.price} />
-      )}
-        </div>
-  );
+      <ACCardsRow cardProperties={cardProps.slice(0, 3)}/>
+      <ACCardsRow cardProperties={cardProps.slice(3, 6)}/>
+    </div>
+  )
 }
 
 export default App;
