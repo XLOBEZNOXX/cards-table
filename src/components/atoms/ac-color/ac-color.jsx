@@ -8,7 +8,7 @@ function ACColor({color = "orange"}) {
         background: color
       };
     return (
-    <div style={styles}></div>
+    <div role="color" style={styles}></div>
   )
 }
 
