@@ -1,9 +1,9 @@
 import {ACButton, ACChip, ACColor, ACTypography} from "../../atoms";
 import "./card.css"
 
-function ACCard({chipTitle, title, price, color}) {
+function ACCard({chipTitle, keyIndex,  title, price, color}) {
   return (
-    <div className="jc-card-container">
+    <div key={keyIndex} className="ac-card-container">
         <div className="color">
             <ACColor color={color}/>
             </div>

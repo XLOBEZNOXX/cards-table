@@ -1,5 +1,7 @@
+import React from "react";
 import "./app.css";
-import {ACCardsRow} from "../organisms"
+import {ACCard} from "../components/molecules"
+import { ACLoaderButton } from "../components/atoms";
 
 const chips = ["wooden", "metal", "fresh", "gold", "silver", "copper"];
 const colors = ["yellow", "green", "blue", "red", "pink", "orange"];
@@ -13,28 +15,56 @@ const titles = [
 ];
 const prices = [892, 167, 320, 924, 177, 787];
 
-const cardProps = [];
-
 function getRandomInt(max) {
-  return Math.floor(Math.random() * max);  
+  const rnd = Math.floor(Math.random() * max);
+  return rnd;
 }
 
-for(let i = 0; i < 6; i++) {
-  cardProps.push({
-    chipTitle: chips[getRandomInt(6)],
-    color: colors[getRandomInt(6)],
-    title: titles[getRandomInt(6)],
-    price: prices[getRandomInt(6)]
-  })
+function getDataForSix() {
+  const cardProps = [];
+
+  for (let i = 0; i < 6; i++) {
+    cardProps.push({
+      chipTitle: chips[getRandomInt(6)],
+      color: colors[getRandomInt(6)],
+      title: titles[getRandomInt(6)],
+      price: prices[getRandomInt(6)]
+    });
+  }
+
+  return cardProps;
 }
 
 function App() {
+  const [data, setData] = React.useState([]);
+
+  // onLoad
+  React.useEffect(() => {
+    setData(getDataForSix());
+  }, []);
+
+  const loadMore = () => {
+    setData(() => [...data, ...getDataForSix()]);
+  };
+
   return (
-    <div className="app"> 
-      <ACCardsRow cardProperties={cardProps.slice(0, 3)}/>
-      <ACCardsRow cardProperties={cardProps.slice(3, 6)}/>
+    <div className="app">
+      <div className="card-container">
+        {data.map((dataItem, index) => (
+          <ACCard
+            key={`card-${index}`}
+            chipTitle={dataItem?.chipTitle}
+            title={dataItem?.title}
+            price={dataItem?.price}
+            color={dataItem?.color}
+          />
+        ))}
+      </div>
+      <div className="load-more">
+        <ACLoaderButton onLoad={loadMore} text="LOAD MORE" />
+      </div>
     </div>
-  )
+  );
 }
 
 export default App;
